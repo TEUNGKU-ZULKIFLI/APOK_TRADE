@@ -80,3 +80,18 @@ h2 {
   border: 1px solid #ef4444;
   color: #991b1b;
 }
+
+input, select, button {
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px #bfdbfe;
+  outline: none;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
