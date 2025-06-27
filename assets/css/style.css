@@ -34,3 +34,49 @@ button:hover {
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2563eb;
+}
+
+#hargaNow {
+  background-color: #e0f2fe;
+  border: 1px dashed #0284c7;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #0c4a6e;
+}
+
+#sl, #tp {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.buy-style #sl {
+  background-color: #fee2e2;
+  border: 1px solid #ef4444;
+  color: #991b1b;
+}
+
+.buy-style #tp {
+  background-color: #d1fae5;
+  border: 1px solid #10b981;
+  color: #065f46;
+}
+
+.sell-style #sl {
+  background-color: #d1fae5;
+  border: 1px solid #10b981;
+  color: #065f46;
+}
+
+.sell-style #tp {
+  background-color: #fee2e2;
+  border: 1px solid #ef4444;
+  color: #991b1b;
+}
