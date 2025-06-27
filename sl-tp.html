@@ -59,18 +59,32 @@
       TP = hargaNow - tpBuffer;
     }
 
-    document.getElementById("sl").innerText = `Stop Loss (SL): ${SL.toFixed(5)} (${slPip} pip)`;
-    document.getElementById("tp").innerText = `Take Profit (TP): ${TP.toFixed(5)} (${tpPip} pip)`;
+  document.getElementById("sl").innerText = `Stop Loss (SL): ${SL.toFixed(5)} (${slPip} pip)`;
+  document.getElementById("tp").innerText = `Take Profit (TP): ${TP.toFixed(5)} (${tpPip} pip)`;
 
-    // ✅ Tambahan class styling buy/sell
-    const container = document.querySelector(".container");
-    container.classList.remove("buy-style", "sell-style");
+  // ✅ Tambahan animasi fade-in
+  const slEl = document.getElementById("sl");
+  const tpEl = document.getElementById("tp");
 
-    if (posisi === "buy") {
-      container.classList.add("buy-style");
-    } else {
-      container.classList.add("sell-style");
-    }
+  slEl.classList.remove("fade-in");
+  tpEl.classList.remove("fade-in");
+
+  void slEl.offsetWidth; // restart animasi
+  void tpEl.offsetWidth;
+
+  slEl.classList.add("fade-in");
+  tpEl.classList.add("fade-in");
+
+  // ✅ Tambahan class styling buy/sell
+  const container = document.querySelector(".container");
+  container.classList.remove("buy-style", "sell-style");
+
+  if (posisi === "buy") {
+    container.classList.add("buy-style");
+  } else {
+    container.classList.add("sell-style");
+  }
+
   }
 </script>
 </body>
