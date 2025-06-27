@@ -61,8 +61,17 @@
 
     document.getElementById("sl").innerText = `Stop Loss (SL): ${SL.toFixed(5)} (${slPip} pip)`;
     document.getElementById("tp").innerText = `Take Profit (TP): ${TP.toFixed(5)} (${tpPip} pip)`;
+
+    // ✅ Tambahan class styling buy/sell
+    const container = document.querySelector(".container");
+    container.classList.remove("buy-style", "sell-style");
+
+    if (posisi === "buy") {
+      container.classList.add("buy-style");
+    } else {
+      container.classList.add("sell-style");
+    }
   }
 </script>
-
 </body>
 </html>
