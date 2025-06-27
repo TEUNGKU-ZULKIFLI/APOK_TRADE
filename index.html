@@ -2,10 +2,10 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Kalkulator SL/TP EURUSD</title>
+  <title>Kalkulator Harga Kisaran EURUSD</title>
 </head>
 <body>
-  <h2>Kalkulator SL & TP - EURUSD</h2>
+  <h2>Kalkulator Harga Kisaran - EURUSD</h2>
 
   <label>Harga Low (terendah):</label><br>
   <input type="number" id="low" step="0.0001"><br><br>
@@ -13,43 +13,23 @@
   <label>Harga High (tertinggi):</label><br>
   <input type="number" id="high" step="0.0001"><br><br>
 
-  <label>Posisi:</label><br>
-  <select id="posisi">
-    <option value="buy">Buy</option>
-    <option value="sell">Sell</option>
-  </select><br><br>
-
-  <button onclick="hitung()">Hitung SL & TP</button>
+  <button onclick="hitung()">Hitung Harga Kisaran</button>
 
   <h3>Hasil:</h3>
   <p id="hargaNow"></p>
-  <p id="sl"></p>
-  <p id="tp"></p>
 
   <script>
     function hitung() {
       const low = parseFloat(document.getElementById("low").value);
       const high = parseFloat(document.getElementById("high").value);
-      const posisi = document.getElementById("posisi").value;
 
-      const hargaNow = (low + high) / 2;
-      const pip = 0.0001;
-      const slBuffer = 20 * pip;
-      const tpBuffer = 40 * pip;
-
-      let SL, TP;
-
-      if (posisi === "buy") {
-        SL = low - slBuffer;
-        TP = hargaNow + tpBuffer;
-      } else {
-        SL = high + slBuffer;
-        TP = hargaNow - tpBuffer;
+      if (isNaN(low) || isNaN(high)) {
+        document.getElementById("hargaNow").innerText = "Masukkan angka valid untuk high dan low.";
+        return;
       }
 
+      const hargaNow = (low + high) / 2;
       document.getElementById("hargaNow").innerText = "Harga Sekarang (kisaran): " + hargaNow.toFixed(5);
-      document.getElementById("sl").innerText = "Stop Loss (SL): " + SL.toFixed(5);
-      document.getElementById("tp").innerText = "Take Profit (TP): " + TP.toFixed(5);
     }
   </script>
 </body>
