@@ -33,6 +33,10 @@
 
       const hargaNow = (low + high) / 2;
       document.getElementById("hargaNow").innerText = "Harga Sekarang (kisaran): " + hargaNow.toFixed(5);
+      const hasil = document.getElementById("hargaNow");
+      hasil.classList.remove("fade-in");
+      void hasil.offsetWidth; // trik untuk restart animasi
+      hasil.classList.add("fade-in");
     }
   </script>
 </body>
