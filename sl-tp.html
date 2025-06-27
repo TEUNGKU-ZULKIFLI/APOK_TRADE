@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalkulator SL/TP dari Harga Kisaran (Auto Pips)</title>
+</head>
+<body>
+  <h2>Kalkulator SL & TP (Auto Pips)</h2>
+
+  <label>Harga Sekarang (kisaran):</label><br>
+  <input type="number" id="hargaNow" step="0.0001"><br><br>
+
+  <label>Posisi:</label><br>
+  <select id="posisi">
+    <option value="buy">Buy</option>
+    <option value="sell">Sell</option>
+  </select><br><br>
+
+  <button onclick="hitung()">Hitung SL & TP</button>
+
+  <h3>Hasil:</h3>
+  <p id="sl"></p>
+  <p id="tp"></p>
+
+<script>
+  function hitung() {
+    const hargaNow = parseFloat(document.getElementById("hargaNow").value);
+    const posisi = document.getElementById("posisi").value;
+
+    if (isNaN(hargaNow)) {
+      document.getElementById("sl").innerText = "❌ Masukkan harga valid!";
+      document.getElementById("tp").innerText = "";
+      return;
+    }
+
+    const pip = 0.0001;
+    let slPip, tpPip;
+
+    if (posisi === "buy") {
+      slPip = 20;
+      tpPip = 40;
+    } else {
+      slPip = 25;
+      tpPip = 35;
+    }
+
+    const slBuffer = slPip * pip;
+    const tpBuffer = tpPip * pip;
+
+    let SL, TP;
+
+    if (posisi === "buy") {
+      SL = hargaNow - slBuffer;
+      TP = hargaNow + tpBuffer;
+    } else {
+      SL = hargaNow + slBuffer;
+      TP = hargaNow - tpBuffer;
+    }
+
+    document.getElementById("sl").innerText = `Stop Loss (SL): ${SL.toFixed(5)} (${slPip} pip)`;
+    document.getElementById("tp").innerText = `Take Profit (TP): ${TP.toFixed(5)} (${tpPip} pip)`;
+  }
+</script>
+
+</body>
+</html>
