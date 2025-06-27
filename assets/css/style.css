@@ -1,0 +1,27 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f3f4f6;
+  padding: 2rem;
+  color: #111;
+}
+
+input, select {
+  padding: 8px;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  background-color: #2563eb;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1e40af;
+}
